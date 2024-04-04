@@ -1,15 +1,26 @@
-COMO COMPILAR 
+**COMO COMPILAR**
+
 Para compilar e executar o programa fornecido, você precisará de um ambiente de desenvolvimento C adequado, nós utilizamos o GCC.
 
-$ gcc -o transferencia_program transferencia.c -lpthread
+```
+gcc -o transferencia_program transferencia.c -lpthread
+```
 
-COMO EXECUTAR
-$ ./transferencia_program
 
-COMPROVAÇÃO DOS RESULTADOS
+**COMO EXECUTAR**
+
+```
+./transferencia_program
+```
+
+
+**COMPROVAÇÃO DOS RESULTADOS**
+
 Deve-se observar a saída do programa. No console, será indicando se as transferências foram bem-sucedidas ou não, juntamente com os saldos das contas após cada transferência.
 
-SOBRE O PROBLEMA
+
+**SOBRE O PROBLEMA**
+
 O problema de concorrência apresentado no código fornecido ocorre devido à falta de sincronização entre as threads que executam a função transferencia(). Para garantir a consistência dos saldos e evitar condições de corrida, é necessário utilizar mecanismos de sincronização, como semáforos, mutexes ou variáveis de condição. Para corrigir o problemas fizemos:
 
 Utilização de Mutexes: Implementamos mutexes individuais para cada conta, garantindo que apenas uma thread possa acessar e modificar o saldo de cada conta por vez. Isso previne conflitos quando múltiplas threads tentam modificar os mesmos dados simultaneamente.
